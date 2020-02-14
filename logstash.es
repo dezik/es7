@@ -57,3 +57,18 @@ GET /movielens-sql/_search
 //      sudo kafka_2.12-2.2.0/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic kafka-logs < access_log
 
 GET /kafka-logs/_search?size=3
+
+
+
+//==================================================================
+//               Logstash and Spark
+//==================================================================
+//
+// Download and unzip Spark:
+//      wget https://archive.apache.org/dist/spark/spark-2.3.3/spark-2.3.3-bin-hadoop2.7.tgz
+// Download CSV:
+//      wget http://media.sundog-soft.com/es/fakefriends.csv
+// Run file in Spark shell:
+//      ./spark-2.3.3-bin-hadoop2.7/bin/spark-shell --packages org.elasticsearch:elasticsearch-spark-20_2.11:7.0.1 -i fakefriends.scala
+
+GET /spark-friends/_search?size=3
