@@ -2,7 +2,9 @@
 //               Logstash and local files
 //==================================================================
 // Install logstash:
-//      apt-get install logstash
+//      sudo apt-get install openjdk-8-jre-headless
+//      sudo apt-get update
+//      sudo apt-get install logstash
 // Download access_log file
 // Create configuration file with input = access_log
 //       vim /etc/logstash/conf.d/logstash.conf

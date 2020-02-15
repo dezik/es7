@@ -1,7 +1,6 @@
 //======================================================================
-//
-// Import with Python script
-//
+//          Import with Python script
+//======================================================================
 //Download MoviesToJson.py and apply it on ml/movies.csv
 //Save output to moremovies.json
 //      python3 MoviestToJson.py > moremovies.json
@@ -10,9 +9,8 @@
 GET /movies/_search?q=mary
 
 //=================================================================
-//
-// Import with client
-//
+//          Import with client
+//=================================================================
 // Install client
 //      pip3 install elasticsearch
 // Copy file IndexRatings.py and run it
