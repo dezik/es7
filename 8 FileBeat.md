@@ -20,4 +20,4 @@
 2. Restart kibana:
     `sudo systemctl restart kibana.service`
 3. Check if new index pattern with name `filebeat-*` was added to kibana (Management->Kibana->Index Patterns)
-4. Check new dashboard `[Filebeat Apache] Access and error logs ECS` on Dashboard tab
+4. Check new dashboard `[Filebeat Apache] Access and error logs ECS` on Dashboard tabcd 

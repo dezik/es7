@@ -133,6 +133,7 @@ POST /_sql/translate
 
 
 // ================================================
+//     !!!!!!!MAY DESTROY EXISTING MASTER NODE!!!!!!!!
 //     !!!!!! How to create failover local ES cluster !!!!!!
 // ================================================
 

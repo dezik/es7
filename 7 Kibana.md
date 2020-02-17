@@ -3,7 +3,7 @@
     `sudo apt-get install kibana`
 2. Update settigs `/etc/kibana/kibana.yml` by changing `server.host 0.0.0.0`
 3. Start kibana service:
-    `sudo sytemctl daemon-reload`
+    `sudo systemctl daemon-reload`
     `sudo systemctl enable kibana.service`
     `sudo systemctl start kibana.service`
 4. Kibana is available on `127.0.0.1:5601`
