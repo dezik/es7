@@ -133,3 +133,76 @@ GET /kafka-logs/_search?size=0
         }
     }
 }
+
+
+
+//========================================================================
+//          Get avg rating per each Star Wars movie
+//======================================================================
+//
+// Following query will find avg rating per each word in title, having Star Wars
+GET /ratings/_search?size=0
+{
+    "query": {
+        "match_phrase": {
+            "title": "Star Wars"
+        }
+    },
+    "aggs": {
+        "titles": {
+            "terms": {
+                "field": "title"
+            },
+            "aggs": {
+                "avg_rating": {
+                    "avg": {
+                        "field": "rating"
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// Remove current index and recreate it with following mapping, import data with IndexRatings.py
+PUT /ratings
+{
+    "mappings": {
+        "properties": {
+            "title": {
+                "type": "text",
+                "fielddata": true,
+                "fields": {
+                    "raw": {
+                        "type": "keyword"
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Now aggregation returns correct results
+GET /ratings/_search?size=0
+{
+    "query": {
+        "match_phrase": {
+            "title": "Star Wars"
+        }
+    },
+    "aggs": {
+        "titles": {
+            "terms": {
+                "field": "title.raw"
+            },
+            "aggs": {
+                "avg_rating": {
+                    "avg": {
+                        "field": "rating"
+                    }
+                }
+            }
+        }
+    }
+}
