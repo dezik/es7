@@ -23,32 +23,32 @@ GET /testindex/_settings
 // ================================================
 POST /_aliases
 {
-    "actions": [
-        {
-            "add": {
-                "index": "logs_2020-02-17",
-                "alias": "current_logs"
-            }
-        },
-        {
-            "remove": {
-                "index": "logs_2020-02-16",
-                "alias": "current_logs"
-            }
-        },
-        {
-            "add": {
-                "index": "logs_2020-02-17",
-                "alias": "last_month_logs"
-            }
-        },
-        {
-            "remove": {
-                "index": "logs_2020-01-17",
-                "alias": "last_month_logs"
-            }
-        }
-    ]
+  "actions": [
+    {
+      "add": {
+        "index": "logs_2020-02-17",
+        "alias": "current_logs"
+      }
+    },
+    {
+      "remove": {
+        "index": "logs_2020-02-16",
+        "alias": "current_logs"
+      }
+    },
+    {
+      "add": {
+        "index": "logs_2020-02-17",
+        "alias": "last_month_logs"
+      }
+    },
+    {
+      "remove": {
+        "index": "logs_2020-01-17",
+        "alias": "last_month_logs"
+      }
+    }
+  ]
 }
 
 
@@ -165,3 +165,24 @@ POST /_sql/translate
 //      sudo systemctl start elasticsearch-node3
 // Check cluster health:
 GET /_cluster/health
+
+
+// ================================================
+//        Cluster shards rebalancing
+// ================================================
+
+// Turn off cluster routing allocation
+PUT /_cluster/settings
+{
+  "transient": {
+    "cluster.routing.allocation.enable": "none"
+  }
+}
+
+// Turn on cluster routing allocation
+PUT /_cluster/settings
+{
+  "transient": {
+    "cluster.routing.allocation.enable": "all"
+  }
+}
